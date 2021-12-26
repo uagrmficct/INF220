@@ -1,0 +1,32 @@
+Pregunta 4
+
+void dicola. poner_frente(int e) {
+
+	Nodo aux = new Nodo;
+
+	if(aux!=Nulo) {
+
+		aux->dat= e;
+
+		if(!vacia()) {
+
+                aux->prev = fin;
+
+               aux->next = ini;
+
+               fin->next = aux;
+
+               ini->prev = aux;
+
+               ini = aux;
+
+		}else {
+
+                      aux->next = aux;
+
+                      aux->prev = aux;
+
+                      ini = fin = aux;
+
+}
+

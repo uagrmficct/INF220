@@ -1,0 +1,216 @@
+///PREGUNTA #1
+
+bool MatrizDispersa::EspuntoSilla(int fiJDBA,int coJDBA){
+
+bool b=true;
+short i=1;
+int Mayor=obtener_el_elemento(fiJDBA,i);
+i++;
+short c=i-1;
+
+while (i<=diMF){
+
+if (obtener_el_elemento(fiJDBA,i)>Mayor){
+
+Mayor=obtener_el_elemento(fiJDBA,i);
+
+}
+
+ i++;
+
+ }
+
+ if (obtener_el_elemento(fiJDBA,coJDBA == Mayor)){
+
+ i=1;
+
+while (i<=diMC && b){
+
+ if (Mayor>obtener_el_elemento(i,coJDBA)&& i!=fiJDBA){
+
+b=false;
+
+}
+
+ i++;
+
+}
+
+return b;
+
+}else{
+
+return false;
+
+}
+
+}
+
+/// PREGUNTA #2
+
+void Pila::Meter(int e){
+
+if (topeJDBA>0) {
+
+topeJDBA--;
+VJDBA[topeJDBA]=e;
+
+}
+
+}
+
+void Pila::crear(){
+
+topeJDBA=MAX;
+
+}
+
+int Pila::cima(){
+
+if (!vacia()) {
+
+return VJDBA[topeJDBA];
+
+}
+
+return -1;
+
+}
+
+///PREGUNTA#3
+
+void Dicola::poner(int e) {
+
+Nodo auxiliar = new Nodo(e);
+
+if (vacia()) {
+
+auxiliar->prev = auxiliar;
+
+auxiliar->next = auxiliar;
+
+iniJDBA = auxiliar;
+
+finJDBA = auxiliar;
+
+}
+
+else {
+
+auxiliar->prev = finJDBA;
+
+finJDBA->next = auxiliar;
+
+auxiliar->next = iniJDBA;
+
+iniJDBA->prev = auxiliar;
+
+finJDBA = auxiliar;
+
+}
+
+}
+
+///PREGUNTA#4
+
+void swap (Pila &KJDBA){
+
+Pila aux1;
+
+Pila aux2;
+
+Pila aux3;
+
+int cima = KJDBA.cima();
+
+int elem = 0;
+
+int num;
+
+while (!KJDBA.vacia()){
+
+elem++;
+
+KJDBA.sacar(num);
+
+aux1.meter(num);
+
+}
+
+int fin = aux1.cima();
+
+while (!aux1.vacia()){
+
+aux1.sacar(num);
+
+aux2.meter(num);
+
+}
+
+while (!aux2.vacia()){
+
+aux2.sacar(num);
+
+aux3.meter(num);
+
+}
+
+	
+
+if(elem <= 2){
+
+while (!aux3.vacia()){
+
+aux3.sacar(num);
+
+KJDBA.meter(num);
+
+}
+
+} 
+
+else{
+
+int orden = 1;
+
+while (!aux3.vacia()){
+
+if(orden == 2){
+
+aux3.sacar(num);
+
+KJDBA.meter(cima);
+
+orden++;
+
+}
+
+else{
+
+if(orden == elem -1){
+
+aux3.sacar(num);
+
+KJDBA.meter(fin);
+
+orden++;
+
+}
+
+else{
+
+aux3.sacar(num);
+
+KJDBA.meter(num);
+
+orden++;
+
+}
+
+}			
+
+}
+
+}
+
+}
